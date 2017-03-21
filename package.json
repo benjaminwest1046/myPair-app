@@ -1,0 +1,16 @@
+{
+  "name": "mypair-app",
+  "version": "1.0.0",
+  "description": "An SPA to track pairs",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Benjamin West",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongoose": "^4.9.1"
+  }
+}
