@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
-var Day = require('./server/models/day');
+var PairGroup = require('./server/models/pairGroup');
 
-mongoose.connect('mongodb://localhost/days');
+mongoose.connect('mongodb://localhost/pairGroup');
 
 function quit() {
   mongoose.disconnect();
@@ -16,20 +16,20 @@ function handleError(err) {
   return err;
 }
 
-Day.remove({})
+PairGroup.remove({})
 .then(function() {
-  console.log('removing old days...');
-  return Day.remove({})
+  var pairGroupOne = new PairGroup({ date: '12/31/2019', pairs: [{ anchor: "Benjamin", developer: "Jessica"}, { anchor: "Chip", developer: "Dale"}]  });
+  return PairGroup.create(pairGroupOne);
 })
-.then(function() {
-  console.log('creating new days...');
-  let dayOne = new Day();
-  dayOne.local = { date: 'WORK'};
-  return Day.create(dayOne);
+.then(function(savedPairGroups) {
+  return PairGroup.find();
 })
-.then(function(savedDay) {
-  return Day.find({})
-}).then(function(days){
-  console.log(days);
+.then(function(pairGroups){
+  console.log(pairGroups.pairs)
+  pairGroups.forEach(function(pg) {
+    console.log(pg);
+  })
+  quit();
 })
 
+//JUST NEED TO TRY TO ADD PAIRS TO THE SEED FILE
