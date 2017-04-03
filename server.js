@@ -4,14 +4,24 @@ var http = require('http');
 var debug = require('debug');
 var path = require('path');
 var mongoose = require('mongoose');
+var router = express.Router();
+var bodyParser = require('body-parser');
 mongoose.Promise = require('bluebird').Promise;
-
+var appRoot = '/client';
 var favicon = require('serve-favicon');
+var index = require('./server/controller/index');
+var pairsRouter = require('./server/controller/pairGroup');
 
 var port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);
 
 var server = http.createServer(app);
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 server.listen(port);
 server.on('error', onError);
@@ -65,15 +75,13 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-mongoose.connect('mongodb://localhost/days');
+mongoose.connect('mongodb://localhost/pairGroup');
 
 app.use(express.static(path.join(__dirname, 'client')));
 
-app.use(favicon(path.join(__dirname, 'client/assets', 'THD_logo.jpg')));
+app.use('/', index);
+app.use('/pairs', pairsRouter);
 
-app.get('/', function(req, res, next) {
-  res.sendFile(__dirname + '/index.html');
-});
 
 app.listen(3000);
 console.log('Running in %s mode', app.get('env'));

@@ -1,0 +1,8 @@
+<p>Hello World</p>
+<ul ng-repeat="days in vmPairs.pairs">
+  <li>{{ days.date }}
+    <ul ng-repeat="pair in days.pairs">
+      <li>Anchor: {{ pair.anchor }} || Developer: {{ pair.developer }}</li>
+    </ul>
+  </li>
+</ul>

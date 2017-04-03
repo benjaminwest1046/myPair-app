@@ -3,7 +3,7 @@ mongoose.Promise = require('bluebird');
 
 var Day = require('Day');
 
-mongoose.connect('mongodb://localhost/days');
+mongoose.connect('mongodb://localhost/pairGroup');
 
 function quit() {
   mongoose.disconnect();
