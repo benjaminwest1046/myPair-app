@@ -1,0 +1,32 @@
+<h1>Create New Pair</h1>
+
+  <div class="row">
+    <form class="col s12" ng-submit="vmPairs.newPair()">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Date" id="first_name" ng-model="vmPairs.pair.date" type="text" class="validate">
+          <label for="first_name">Date</label>
+        </div>
+      </div>
+      <div class="input-field col s12 m6">
+        <select class="icons" ng-model="vmPairs.pair.pairs">
+          <option value="" disabled selected>Choose your option</option>
+          <option value="" data-icon="/assets/THD_logo.jpg" class="circle">Ben</option>
+          <option value="" data-icon="/assets/THD_logo.jpg" class="circle">Joe</option>
+          <option value="" data-icon="/assets/THD_logo.jpg" class="circle">Paige</option>
+        </select>
+        <label>Images in select</label>
+      </div>
+      <div class="input-field col s12 m6">
+        <select class="icons">
+          <option value="" disabled selected>Choose your option</option>
+          <option value="" data-icon="/assets/THD_logo.jpg" class="left circle">Chad</option>
+          <option value="" data-icon="/assets/THD_logo.jpg" class="left circle">Patrick</option>
+          <option value="" data-icon="/assets/THD_logo.jpg" class="left circle">Casey</option>
+        </select>
+        <label>Images in select</label>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
