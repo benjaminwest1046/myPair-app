@@ -13,6 +13,7 @@
       date: '',
       pairs: []
     }
+    vmPairs.pairs = [];
 
     init();
     function init() {
@@ -28,10 +29,12 @@
       })
     }
 
-    function newPair(pair) {
-      console.log('newPair function')
-      pairService.createPair(pair).then(function(res) {
-        $state.go('pairs')
+    function newPair() {
+      vmPairs.pair.pairs.push(vmPairs.pairs)  
+              console.log(vmPairs.pair)
+
+      pairService.createPair(vmPairs.pair).then(function(res) {
+        $state.go('pair')
       })
     }
 

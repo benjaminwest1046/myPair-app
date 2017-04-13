@@ -8,7 +8,7 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 mongoose.Promise = require('bluebird').Promise;
 var appRoot = '/client';
-var favicon = require('serve-favicon');
+//var favicon = require('serve-favicon');
 var index = require('./server/controller/index');
 var pairsRouter = require('./server/controller/pairGroup');
 
