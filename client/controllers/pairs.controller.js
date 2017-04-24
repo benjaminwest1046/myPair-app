@@ -4,30 +4,41 @@
   angular
     .module('pairsApp')
     .controller('pairCtrl', pairCtrl);
-
+    
     function pairCtrl(_pairService_, $http, $state) {
         var pairService = _pairService_;
         var vmPairs = this;
-        vmPairs.newPair = newPair;
-        vmPairs.handleClick = handleClick;
         vmPairs.developers = [
-         "Benjamin", "Chad"
-        ]
+            {name: "Benjamin"},
+            {name: "Ryan"},
+            {name: "Chad"},
+            {name: "Patrick"},
+            {name: "Matt"},
+            {name: "Joe"},
+            {name: "Yash"},
+            {name: "Paige"},
+            {name: "Francisco"},
         
-        vmPairs.pair = {
+        ];
+        vmPairs.day = {
           date: '',
           pairs: []
-        }
-        vmPairs.pairs = [];
+        };        
+        vmPairs.selectedPairs = [];
+        vmPairs.confirmVisible = false;
+        vmPairs.handleClick = handleClick;
+        vmPairs.confirmPair = confirmPair;
+        vmPairs.currentSelectedPair;
 
         init();
 
         function init() {
-          getPairs().then(function(pairs) {
-            vmPairs.pairs = pairs;
+          getPairs().then(function(pairGroups) {
+            vmPairs.pairGroups = pairGroups;
           });
         }
 
+        //Data calls
         function getPairs() {
           return pairService.getPairs()
           .then(res => {
@@ -35,18 +46,21 @@
           })
         }
 
-        function newPair() {
-            vmPairs.pair.pairs.push(vmPairs.pairs)  
-            console.log(vmPairs.pair)
-
-          pairService.createPair(vmPairs.pair).then(function(res) {
-            $state.go('pair')
-          })
-        }
-
         function handleClick(developer) {
             developer.selected = !developer.selected;
-            console.log(vmPairs.developers);
+            vmPairs.currentSelectedPair = _.filter(vmPairs.developers, {'selected': true});
+            console.log(vmPairs.currentSelectedPair);
         }
+        
+        function confirmPair() {
+            console.log(vmPairs.currentSelectedPair)
+            vmPairs.selectedPairs.push(vmPairs.currentSelectedPair);
+            vmPairs.currentSelectedPair.length = 0;
+            vmPairs.developers.forEach(function(developer) {
+                developer.selected = false;
+            })
+        }
+        
+    
     }
 })();

@@ -1,6 +1,5 @@
 body {
     max-width: 960px;
-    background-color: lightblue;
 }
 
 .create-wrapper {
@@ -12,26 +11,24 @@ body {
     left: 0;
     width: 600px;
     height: 600px;
-    background-color: tomato;
     display: flex;
     justify-content: center;
     align-items: center;
+    align-content: space-around;
     flex-wrap: wrap;
-}
-
-.img-wrapper {
 }
 
 .avatar {
     width: 125px;
     height: 125px;
-    align-content: center;
+    align-self: center;
     margin: 7px 15px;
     box-shadow: 4px 3px 27px #888888;
     border-radius: 5px;
 }
 
+
 .selected {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
