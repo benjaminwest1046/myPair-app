@@ -3,17 +3,16 @@
         <div class="img-wrapper" ng-repeat="developer in vmPairs.developers">
             <img 
                  class="responsive-img avatar" 
-                 src="/assets/chad.jpg" 
+                 src="{{ developer.img }}" 
                  ng-click="vmPairs.handleClick(developer)" 
                  ng-class="{selected: developer.selected}" />
         </div>
 
 </div>
 <div class="selected-wrapper" ng-repeat="developer in vmPairs.selectedPairs">
-    Right here...
     <img 
      class="responsive-img avatar" 
-     src="/assets/chad.jpg" 
+     src="{{ developer.img }}" 
      ng-class="{selected: developer.selected}" />
 </div>
 

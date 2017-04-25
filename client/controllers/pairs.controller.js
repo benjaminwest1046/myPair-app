@@ -10,14 +10,13 @@
         var vmPairs = this;
         vmPairs.developers = [
             {name: "Benjamin"},
-            {name: "Ryan"},
-            {name: "Chad"},
-            {name: "Patrick"},
-            {name: "Matt"},
-            {name: "Joe"},
-            {name: "Yash"},
-            {name: "Paige"},
-            {name: "Francisco"},
+            {name: "Chad", img: "/assets/chad.jpeg"},
+            {name: "Patrick", img: "/assets/patrick.jpg"},
+            {name: "Matt", img: "/assets/matt.jpg"},
+            {name: "Joe", img: "/assets/joe.jpg"},
+            {name: "Yash", img: "/assets/yash.jpg"},
+            {name: "Paige", img: "/assets/paige.png"},
+            {name: "Francisco", img: "/assets/francisco.jpg"},
         
         ];
         vmPairs.day = {
