@@ -1,34 +1,31 @@
 body {
-    max-width: 960px;
 }
 
-.create-wrapper {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 600px;
+.available {
+    background-color: azure;
+}
+
+.selected-wrapper {
     height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: space-around;
     flex-wrap: wrap;
+    background-color: peachpuff;
 }
 
 .avatar {
-    width: 125px;
-    height: 125px;
-    align-self: center;
+    width: 100px;
+    height: 100px;
     margin: 7px 15px;
-    box-shadow: 4px 3px 27px #888888;
-    border-radius: 62px;
+    box-shadow: 4px 3px 27px #000;
+    border-radius: 50px;
+    border: 2px solid white;
 }
 
 
 .selected {
-    width: 150px;
-    height: 150px;
+    border: 2px solid green;
+    border-radius: 50px;
 }

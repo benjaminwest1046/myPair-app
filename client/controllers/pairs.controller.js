@@ -8,8 +8,7 @@
     function pairCtrl(_pairService_, $http, $state) {
         var pairService = _pairService_;
         var vmPairs = this;
-        vmPairs.developers = [
-            {name: "Benjamin"},
+        vmPairs.availableDevelopers = [
             {name: "Chad", img: "/assets/chad.jpeg"},
             {name: "Patrick", img: "/assets/patrick.jpg"},
             {name: "Matt", img: "/assets/matt.jpg"},
@@ -37,7 +36,6 @@
           });
         }
 
-        //Data calls
         function getPairs() {
           return pairService.getPairs()
           .then(res => {
@@ -47,19 +45,33 @@
 
         function handleClick(developer) {
             developer.selected = !developer.selected;
-            vmPairs.currentSelectedPair = _.filter(vmPairs.developers, {'selected': true});
-            console.log(vmPairs.currentSelectedPair);
+            vmPairs.currentSelectedPair = _.filter(vmPairs.availableDevelopers, {'selected': true});
+            console.log('original', vmPairs.currentSelectedPair)
         }
         
         function confirmPair() {
-            console.log(vmPairs.currentSelectedPair)
+            console.log('confirm pair called')
             vmPairs.selectedPairs.push(vmPairs.currentSelectedPair);
-            vmPairs.currentSelectedPair.length = 0;
-            vmPairs.developers.forEach(function(developer) {
+            vmPairs.availableDevelopers.forEach(function(developer) {
                 developer.selected = false;
             })
+            vmPairs.selectedPairs
         }
         
     
+        
     }
 })();
+
+
+
+
+
+
+
+
+//when I select a developer queue an animation and mark them as selected
+//when I select another developer show a confirm button 
+//when I click the confirm button then unselecte those two developers
+//remove them from the available developer list
+//add them to a selecte developer list as a pair 
