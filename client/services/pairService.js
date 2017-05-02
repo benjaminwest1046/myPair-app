@@ -33,9 +33,6 @@
     function deletePair(pair) {
       return $http.delete('/pairs/' + pair._id)
     }
-      
-    function getDevelopers() {
-        return $http.get('')
-    }
+
   }
 })();

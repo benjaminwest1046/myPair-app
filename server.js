@@ -12,6 +12,7 @@ var appRoot = '/client';
 //var favicon = require('serve-favicon');
 var index = require('./server/controller/index');
 var pairsRouter = require('./server/controller/pairGroup');
+var developersRouter = require('./server/controller/developer');
 
 var port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);
@@ -82,11 +83,10 @@ app.use(express.static(path.join(__dirname, 'client')));
 
 app.use('/', index);
 app.use('/pairs', pairsRouter);
+app.use('/developers', developersRouter);
 
 
 app.listen(3000);
 console.log('Running in %s mode', app.get('env'));
 
 module.exports = app;
-
-

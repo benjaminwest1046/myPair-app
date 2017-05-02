@@ -1,31 +1,62 @@
-<h1>Create New Pair</h1>
+<!-- <h1>Create New Pair</h1>
 
 <div class="container-fluid">
     <div class="row">
         <div class="container" ng-repeat="developer in vmPairs.availableDevelopers">
             <div class="row">
-                <div class=".col-md-6">
-                    <img 
+                <div class="col-md-6">
+                    <img
                      ng-if="developer.img != undefined"
-                     class="avatar" 
-                     src="{{ developer.img }}" 
-                     ng-click="vmPairs.handleClick(developer)" 
+                     class="avatar"
+                     src="{{ developer.img }}"
+                     ng-click="vmPairs.handleClick(developer)"
                      ng-class="{selected: developer.selected}" />
                     <h3 ng-if="developer.img === undefined"> {{ developer.name }}</h3>
                 </div>
+
             </div>
         </div>
-        </div>
-        <div class=".col-md-4" ng-repeat="pair in vmPairs.selectedPairs">
-            <div class=".col-md-6" ng-repeat="developer in pair">
+        <div class="container" ng-repeat="pair in vmPairs.selectedPairs">
+            <div class="col-md-6" ng-repeat="developer in pair">
                 <img class="avatar" src="{{ developer.img }}" />
-            </div> 
+            </div>
         </div>
-    </div>      
-    
-        <div class=".col-md-6">
-            <button class="btn btn-primary" ng-show="vmPairs.currentSelectedPair.length > 1" ng-click="vmPairs.confirmPair()">Confirm</button>
-        </div>
-   
-</div>
+    </div>
 
+    </div>
+
+        <div class=".col-md-6">
+            <button class="btn btn-primary" ng-show="vmPairs.currentSelectedPair.length > 1"
+                    ng-click="vmPairs.confirmPair()">Confirm</button>
+        </div>
+
+</div> -->
+
+<div class="container-fluid">
+  <h1>12/31/2017</h1>
+  <div class="row">
+
+    <section class="col-md-6 developers">
+      <h3>Available Developers</h3>
+        <div ng-repeat="developer in vmPairs.availableDevelopers">
+          <div class="row" ng-if="$index % 2 == 0">
+            <div class="col-md-6">
+              <img
+               ng-if="developer.img != undefined"
+               class="avatar"
+               src="{{ developer.img }}"
+               ng-click="vmPairs.handleClick(developer)"
+               ng-class="{selected: developer.selected}" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-md-6 pairs">
+      <h3>Selected Pairs</h3>
+      <!-- Seleccted Pairs -->
+    </section>
+  </div>
+
+</div>
