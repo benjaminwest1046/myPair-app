@@ -1,0 +1,24 @@
+.nav-background {
+  background-color: #f96332;
+  color: white;
+  padding: 15px;
+}
+
+.nav-menu {
+    margin-top: 10px;
+}
+
+.nav-menu li {
+  display: inline;
+  margin: 15px;
+  font-weight: 700;
+  font-size: 1em;
+}
+
+.nav-menu li i {
+  font-size: 1.4em;
+}
+
+.nav-hero-icon-wrapper i {
+  font-size: 2em;
+}
