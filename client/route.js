@@ -1,19 +1,19 @@
-angular.module('pairsApp', ['ui.router', 'ngResource']);
+angular.module('pairsApp', ['ui.router', 'ngResource', 'xeditable']);
 angular.module('pairsApp')
 .config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/pairs');
   $stateProvider
-    .state('pair', {
+    .state('pairs', {
       url: '/pairs',
       templateUrl: 'views/pairs.html',
       controller: 'pairCtrl as vmPairs'
   })
-    .state('new', {
+    .state('newPair', {
       url: '/pairs/new',
       templateUrl: 'views/new_pair.html',
       controller: 'pairCtrl as vmPairs'
     })
-    .state('developer', {
+    .state('developers', {
       url: '/developers',
       templateUrl: 'views/developers.html',
       controller: 'developerCtrl as vmDevelopers'

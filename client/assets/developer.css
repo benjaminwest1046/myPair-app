@@ -1,9 +1,19 @@
 .developer-fields-header {
   margin-top: 40px;
-  margin-bottom: 12px;
 }
 
 .developer-fields-header span {
   font-weight: 700;
   font-size: 1.6em;
+}
+
+.developer-wrapper img {
+  height: 75px;
+  width: 75px;
+  border-radius: 60px;
+  margin-bottom: 7px;
+}
+
+* {
+  border: 1px outline red;
 }

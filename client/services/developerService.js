@@ -22,6 +22,7 @@
     }
 
     function updateDeveloper(developer) {
+      console.log('service is going')
       return $http.put('/developers/' + developer._id, developer);
     }
 

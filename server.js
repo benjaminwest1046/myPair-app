@@ -13,6 +13,7 @@ var appRoot = '/client';
 var index = require('./server/controller/index');
 var pairsRouter = require('./server/controller/pairGroup');
 var developersRouter = require('./server/controller/developer');
+var shortid = require('shortid');
 
 var port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);

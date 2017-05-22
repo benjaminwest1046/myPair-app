@@ -22,7 +22,7 @@ PairGroup.remove({})
     return PairGroup.remove({})
 })
 .then(function() {
-    var pair1 = 
+    var pair1 =
         {
             anchor: "Benjamin",
             developer: "Christopher",
@@ -45,8 +45,8 @@ PairGroup.remove({})
     return Developer.remove({})
 })
 .then(function() {
-    var dev1 = new Developer({name: "Benjamin"});
-    var dev2 = new Developer({name: "Jessica"});
+    var dev1 = new Developer({name: "Benjamin", avatar_url: "http://www.behindthevoiceactors.com/_img/chars/ducky-the-land-before-time-75.8.jpg", slack_name: "benjamin_west"});
+    var dev2 = new Developer({name: "Jessica", avatar_url: "http://www.behindthevoiceactors.com/_img/chars/ducky-the-land-before-time-75.8.jpg", slack_name: "jessica_smith9873"});
     var devArray = [dev1, dev2];
     return devArray.forEach(function(dev) {
         return Developer.create(dev);

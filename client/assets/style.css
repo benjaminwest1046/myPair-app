@@ -3,6 +3,12 @@ body {
   font-weight: 200;
 }
 
+a, a:hover, a:visited, a:visited, a:focus {
+  color: white;
+  text-decoration: none;
+  outline: none;
+}
+
 img {
   width: 150px;
   height: 150px;

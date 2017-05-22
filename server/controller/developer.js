@@ -12,14 +12,23 @@ router.get('/', function(req, res, next) {
   });
 });
 
-//CREATE
-// router.post('/', function(req, res, next) {
-//   var developer = new Developer({
-//     name: req.body.name,
-//     slack_name: req.body.slack_name,
-//     avatar_url: req.body.avatar_url
-//   });
-//   developer.save()
-// })
+
+router.put('/:id', function(req, res, next) {
+  Developer.findById(req.params.id)
+  .then(function(developer) {
+    console.log(developer);
+    if (!developer) return next(makeError(res, 'Developer not found', 404));
+    developer.name = req.body.name;
+    developer.slack_name = req.body.slack_name;
+    developer.avatar_url = req.body.avatar_url;
+    console.log('controller going');
+    return developer.save();
+  })
+  .then(function(developer) {
+    res.json(developer);
+  }, function(err) {
+    return next(err);
+  });
+});
 
 module.exports = router;

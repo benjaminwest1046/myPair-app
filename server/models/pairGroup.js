@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var shortid = require('shortid');
 
 var PairSchema = new mongoose.Schema({
   anchor         : String,
@@ -12,7 +13,11 @@ module.exports = mongoose.model('Pair', PairSchema);
 
 var PairGroupSchema = new mongoose.Schema({
   date : String,
-  pairs: [PairSchema]
+  pairs: [PairSchema],
+  _id: {
+    type: String,
+    'default': shortid.generate
+  }
 },
   { timeStamps: true }
 );

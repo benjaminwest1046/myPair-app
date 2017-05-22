@@ -9,6 +9,8 @@
     var developerService = _developerService_;
     var vmDevelopers = this;
 
+    vmDevelopers.saveDevelopers = saveDevelopers;
+
     vmDevelopers.developers = [];
     vmDevelopers.developer = {
       name: '',
@@ -31,7 +33,21 @@
       });
     }
 
+    function toggleEdit(row) {
+      console.log(row);
+      vmDevelopers.developers[row].editing = !vmDevelopers.developers[row].editing;
+    }
 
+    function saveDevelopers() {
+      vmDevelopers.developers.forEach(function(developer) {
+        developerService.updateDeveloper(developer);
+      })
+    }
+
+
+//have listener that can tell if an edit has been made
+//pop a save button when changes have been made
+//submit with a a put for the changed element
 
 
 
