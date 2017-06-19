@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <h1>12/31/2017</h1>
+  <div class="row">
+  <button type="submit" ng-click="vmPairs.confirmPair()" ng-show="vmPairs.currentSelectedPair.length === 2">Confirm Pair</button>
+    <section class="col-md-6 developers">
+      <h3>Available Developers</h3>
+        <div ng-repeat="developer in vmPairs.availableDevelopers">
+          <div class="row" ng-if="$index % 2 === 0">
+            <div class="col-md-6">
+              <span ng-click="vmPairs.handleClick(developer)" ng-class="{ selected: developer.selected }"> name: {{ developer.name }} </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-md-6 pairs">
+      <h3>Selected Pairs</h3>
+      <div ng-repeat="developer in vmPairs.selectedPairs">
+        <div class="row" ng-if="$index % 2 === 0">
+          <div class="col-md-6">
+            <span>name: {{ developer.name }}</span>
+          </div>
+        </div>
+    </section>
+  </div>
+
+</div>

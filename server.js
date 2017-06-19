@@ -3,6 +3,8 @@ var app = express();
 var http = require('http');
 var debug = require('debug');
 var path = require('path');
+var fs = require('fs');
+var multer = require('multer');
 var mongoose = require('mongoose');
 var router = express.Router();
 var bodyParser = require('body-parser');
@@ -81,6 +83,10 @@ function onListening() {
 mongoose.connect('mongodb://localhost/pairGroup');
 
 app.use(express.static(path.join(__dirname, 'client')));
+
+app.use(multer({
+  dest: path.join(__dirname, 'public/upload/temp')
+}).any());
 
 app.use('/', index);
 app.use('/pairs', pairsRouter);

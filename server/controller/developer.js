@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Developer = require('../models/developer.js');
+var fs = require('fs');
 
 //GET ALL
 router.get('/', function(req, res, next) {
@@ -12,23 +13,44 @@ router.get('/', function(req, res, next) {
   });
 });
 
-
 router.put('/:id', function(req, res, next) {
   Developer.findById(req.params.id)
   .then(function(developer) {
-    console.log(developer);
-    if (!developer) return next(makeError(res, 'Developer not found', 404));
-    developer.name = req.body.name;
-    developer.slack_name = req.body.slack_name;
-    developer.avatar_url = req.body.avatar_url;
-    console.log('controller going');
+    if (!developer) {
+      developer = new Developer({
+        name: req.body.name,
+        slack_name: req.body.slack_name,
+        avatar_url: req.body.avatar_url,
+      })
+    } else {
+        developer.name = req.body.name;
+        developer.slack_name = req.body.slack_name;
+        developer.avatar_url = req.body.avatar_url;
+    }
     return developer.save();
   })
   .then(function(developer) {
-    res.json(developer);
+    return res.json(developer);
+  }, function(err) {
+    return next(err);
+  });
+});
+
+router.delete('/:id', function(req, res, next) {
+  Developer.findById(req.params.id)
+  .then(function(developer) {
+    if (!developer) return console.log('Cannot find developer');
+    return Developer.remove({_id: developer._id});
+  })
+  .then(function() {
+    res.status(204).end();
   }, function(err) {
     return next(err);
   });
 });
 
 module.exports = router;
+
+
+//DONE: delete
+//TODO: Sort by developer name in the end point

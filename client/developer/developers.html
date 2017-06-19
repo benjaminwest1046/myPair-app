@@ -1,0 +1,38 @@
+<span class="page-title">developers</span>
+<div class="container developer-wrapper">
+  <div class="row developer-fields-header">
+    <div class="col-md-3">
+      <span>avatar</span>
+    </div>
+    <div class="col-md-3">
+      <span>name</span>
+    </div>
+    <div class="col-md-3">
+      <span>slack name</span>
+    </div>
+  </div>
+  <form ng-submit="vmDevelopers.saveDevelopers()" enctype="multipart/form-data">
+    <div class="row" ng-repeat="developer in vmDevelopers.developers">
+      <div class="col-md-3">
+        <img ng-if="true" src="https://vignette2.wikia.nocookie.net/landbeforetime/images/d/d8/MadDucky.png/revision/latest?cb=20141223044011"/>
+      </div>
+      <div class="col-md-3">
+        <input type="text"
+               class="form-control"
+               ng-model="developer.name"
+               ng-required="true"
+               ng-change="vmDevelopers.determineIfNewDeveloperNeeded()"></input>
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control" ng-model="developer.slack_name"></input>
+      </div>
+      <div class="col-md-3">
+        <p>Id: {{ developer._id }} </p>
+      </div>
+      <i class="fa fa-eraser" ng-click="vmDevelopers.deleteDeveloper(developer._id)"></i>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+    <i class="fa fa-plus" ng-click="vmDevelopers.newDeveloper()"></i>
+
+</div>

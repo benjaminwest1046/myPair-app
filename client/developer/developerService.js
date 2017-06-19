@@ -7,7 +7,7 @@
 
   function developerService($http) {
     return {
-      getDevelopers: getDevelopers,
+      getDevelopers:   getDevelopers,
       createDeveloper: createDeveloper,
       updateDeveloper: updateDeveloper,
       deleteDeveloper: deleteDeveloper
@@ -22,12 +22,12 @@
     }
 
     function updateDeveloper(developer) {
-      console.log('service is going')
       return $http.put('/developers/' + developer._id, developer);
     }
 
-    function deleteDeveloper(developer) {
-      return $http.delete('/developers/' + developer._id);
+    function deleteDeveloper(id) {
+      console.log(id);
+      return $http.delete('/developers/' + id);
     }
 
   }
