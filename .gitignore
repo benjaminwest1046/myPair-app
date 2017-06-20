@@ -3,3 +3,7 @@ node_modules
 bower.json
 package.json
 
+.idea/misc.xml
+.idea/modules.xml
+.idea/myPair-app.iml
+.idea/workspace.xml
