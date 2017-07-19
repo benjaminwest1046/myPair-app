@@ -5,13 +5,13 @@ angular.module('pairsApp')
   $stateProvider
     .state('pairs', {
       url: '/pairs',
-      templateUrl: 'pairs.html',
-      controller: 'pairCtrl as vmPairs'
+      templateUrl: '../pairGroup/pairs.html',
+      controller: 'pairGroupCtrl as vmPairGroups'
   })
-    .state('newPair', {
+    .state('createPairGroup', {
       url: '/pairs/new',
-      templateUrl: '../pairGroup/new_pair.html',
-      controller: 'pairCtrl as vmPairs'
+      templateUrl: '../pairGroup/create/createPairGroup.html',
+      controller: 'createPairGroupCtrl as vmCreatePairGroups'
     })
     .state('developers', {
       url: '/developers',

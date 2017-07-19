@@ -26,7 +26,6 @@
     }
 
     function deleteDeveloper(id) {
-      console.log(id);
       return $http.delete('/developers/' + id);
     }
 

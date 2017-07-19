@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <h3 class="page-title">add new pairs</h3>
+  <div class="row">
+    <div class="col-md-6 big-container">
+      <h4>developers</h4>
+        <div class="developer-container">
+          <div class="developer" ng-repeat="developer in vmCreatePairGroups.developers" ng-click="vmCreatePairGroups.handleClick($index)" ng-class="{selected: developer.selected}">{{ developer.name }}</div>
+        </div>
+    </div>
+    <div class="col-md-6 big-container">
+      <h4>pairs</h4>
+        <div ng-repeat="pair in vmCreatePairGroups.pairGroup.pairs" class="col-md-6 developer-container pair-container"><i class="fa fa-times" ng-click="vmCreatePairGroups.removePair(pair)"></i>
+            <div class="developer">{{ pair.anchor }}</div>
+            <div class="developer">{{ pair.developer }}</div>
+        </div>
+    </div>
+  </div>
+  <button ng-click="vmCreatePairGroups.savePairGroup()">Submit</button>
+</div>

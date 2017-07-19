@@ -21,3 +21,11 @@
 .fa fa-floppy-o {
     font-size: 40px;
 }
+
+button {
+  background-color: white;
+  border: 1px solid orange;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline;
+}

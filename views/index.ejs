@@ -2,13 +2,14 @@
 <html>
   <head>
     <title>Assortment Pairs</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js">
     <link rel="stylesheet" type="text/css" href="/bower_components/ngToast/dist/ngToast.css">
     <link rel="stylesheet" type="text/css" href="/bower_components/ngToast/dist/ngToast-animations.css">
     <link rel="stylesheet" type="text/css" href="/assets/style.css">
     <link rel="stylesheet" type="text/css" href="/developer/developer.css">
+    <link rel="stylesheet" type="text/css" href="/pairGroup/pairGroup.css">
     <link rel="stylesheet" type="text/css" href="/core/nav.css">
   </head>
   <body ng-app="pairsApp">
@@ -24,11 +25,18 @@
   <script type="text/javascript" src="/bower_components/filepicker-js-bower/filepicker.js"></script>
   <script type="text/javascript" src="/bower_components/angular-sanitize/angular-sanitize.js" defer></script>
   <script type="text/javascript" src="/bower_components/ngToast/dist/ngToast.js" defer></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js" defer></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js" defer></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js" defer></script>
+  <script type="text/javascript" src="/bower_components/moment/moment.js" defer></script>
   <script type="text/javascript" src="core/route.js" defer></script>
-  <script type="text/javascript" src="/pairGroup/pairs.controller.js" defer></script>
+
+  <!--PairGroup  -->
+  <script type="text/javascript" src="/pairGroup/create/createPairGroup.controller.js" defer></script>
+  <script type="text/javascript" src="/pairGroup/pairGroup.controller.js" defer></script>
+  <script type="text/javascript" src="/pairGroup/pairGroupService.js" defer></script>
+  <!-- Developers  -->
   <script type="text/javascript" src="/developer/developers.controller.js" defer></script>
-  <script type="text/javascript" src="/pairGroup/pairService.js" defer></script>
   <script type="text/javascript" src="/developer/developerService.js" defer></script>
+
+
 </html>

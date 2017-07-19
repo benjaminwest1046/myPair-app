@@ -5,7 +5,7 @@
   .module('pairsApp')
   .controller('developerCtrl', developerCtrl);
 
-  function developerCtrl(_developerService_, $q, ngToast) {
+  function developerCtrl(_developerService_, $q, ngToast, $scope) {
     var developerService = _developerService_;
     var vmDevelopers = this;
 
@@ -34,6 +34,11 @@
         return vmDevelopers.developers = _.sortBy(res.data, ['name', 'slack_name']);
       });
     }
+
+
+        // $scope.$watch('vmDevelopers.developers', function() {
+        //   console.log('backstreets back alright');
+        // });
 
     function newDeveloper() {
       var newDeveloper = angular.copy(developerModel)
