@@ -35,11 +35,6 @@
       });
     }
 
-
-        // $scope.$watch('vmDevelopers.developers', function() {
-        //   console.log('backstreets back alright');
-        // });
-
     function newDeveloper() {
       var newDeveloper = angular.copy(developerModel)
       vmDevelopers.developers.push(newDeveloper);
@@ -68,7 +63,11 @@
     }
 
     function determineIfNewDeveloperNeeded() {
-
+      var lastDeveloper = vmDevelopers.developers.slice(-1)[0];
+      console.log(lastDeveloper);
+      if (lastDeveloper.name && lastDeveloper.slack_name) {
+        newDeveloper();
+      }
     }
 
 

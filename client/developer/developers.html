@@ -1,16 +1,5 @@
-<span class="page-title">developers</span>
-<div class="container developer-wrapper">
-  <div class="row developer-fields-header">
-    <div class="col-md-3">
-      <span>avatar</span>
-    </div>
-    <div class="col-md-3">
-      <span>name</span>
-    </div>
-    <div class="col-md-3">
-      <span>slack name</span>
-    </div>
-  </div>
+<!--
+
   <form ng-submit="vmDevelopers.saveDevelopers()" enctype="multipart/form-data">
     <div class="row" ng-repeat="developer in vmDevelopers.developers">
       <div class="col-md-3">
@@ -29,4 +18,27 @@
   </form>
     <button ng-click="vmDevelopers.newDeveloper()">Add</i>
 
+</div> -->
+
+
+<form class="ui container developer-container" ng-submit="vmDevelopers.saveDevelopers()" enctype="multipart/form-data">
+<div class="ui form">
+  <div class="fields" ng-repeat="developer in vmDevelopers.developers">
+    <div class="field">
+      <label>Name</label>
+      <input type="text"
+             placeholder="Name"
+             ng-model="developer.name"
+             ng-change="vmDevelopers.determineIfNewDeveloperNeeded()">
+    </div>
+    <div class="field">
+      <label>Slack Handle</label>
+      <input type="text"
+             placeholder="Slack Handle"
+             ng-model="developer.slack_name"
+             ng-change="vmDevelopers.determineIfNewDeveloperNeeded()">
+    </div>
+  </div>
+  <button class="ui button" type="submit">Save All Developers</button>
 </div>
+</form>
