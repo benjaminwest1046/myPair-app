@@ -13,13 +13,15 @@
     vmDevelopers.newDeveloper = newDeveloper;
     vmDevelopers.deleteDeveloper = deleteDeveloper;
     vmDevelopers.determineIfNewDeveloperNeeded = determineIfNewDeveloperNeeded;
+    vmDevelopers.avatarUpload = avatarUpload;
 
     vmDevelopers.developers = [];
     var developerModel = {
-      name: '',
-      slack_name: '',
+      name: null,
+      slack_name: null,
       avatar_url: '',
-      avatar: ''
+      avatar: '',
+      avatarCropped: ''
     };
 
     init();
@@ -31,7 +33,11 @@
     function getDevelopers() {
       return developerService.getDevelopers()
       .then(res => {
-        return vmDevelopers.developers = _.sortBy(res.data, ['name', 'slack_name']);
+        return vmDevelopers.developers = _.sortBy(res.data, function(o) {
+          if (o.name !== undefined || o.name !== null || o.name !== "") {
+            return o.name;
+          }
+        });
       });
     }
 
@@ -42,20 +48,29 @@
 
     function saveDevelopers() {
       var promises = [];
-      vmDevelopers.developers.forEach(function(developer) {
-        var promise = developerService.updateDeveloper(developer);
-        promises.push(promise);
+      var incompleteDevelopers = _.filter(vmDevelopers.developers, function(o) {
+        return o.name === null || o.slack_name === null
       });
-      return $q.all(promises).then(function() {
-        ngToast.create({
-          className: 'warning',
-          content: '<a href="#" class="">a message</a>'
+      if (incompleteDevelopers.length > 1) {
+        console.log('no');
+      } else {
+        vmDevelopers.developers.forEach(function(developer) {
+          var promise = developerService.updateDeveloper(developer);
+          promises.push(promise);
         });
-        return getDevelopers()
-      });
+        return $q.all(promises).then(function() {
+          ngToast.create({
+            className: 'warning',
+            content: '<a href="#" class="">a message</a>'
+          });
+          return getDevelopers()
+        });
+      }
+
     }
 
     function deleteDeveloper(id) {
+      console.log('going', id)
       return developerService.deleteDeveloper(id)
       .then(res => {
         return getDevelopers();
@@ -64,24 +79,22 @@
 
     function determineIfNewDeveloperNeeded() {
       var lastDeveloper = vmDevelopers.developers.slice(-1)[0];
-      console.log(lastDeveloper);
       if (lastDeveloper.name && lastDeveloper.slack_name) {
         newDeveloper();
       }
     }
 
+    var client = filestack.init('A8OZDrGQeqMiPGVr7wNAwz');
 
-//DONE: Have a button to add a new developer at the end
-//TODO: Only call save if the required fields are poplulated
-//TODO: Highlight in red if fields are not poplulated
-//TODO: Hook up the image upload
-//TODO: Have the save button pop when changes are made
-//TODO: display placeholder if no picture is present
-//TODO: Automatically add the new space
-
-
-
-
+    function avatarUpload(index) {
+        client.pick({
+        }).then(function(result) {
+          vmDevelopers.developers[index].avatar_url = result.filesUploaded[0].url;
+          $scope.$apply();
+          console.log(result.filesUploaded)
+          console.log(vmDevelopers.developers[index]);
+        });
+    }
 
   }
 })();

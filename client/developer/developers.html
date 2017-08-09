@@ -1,44 +1,29 @@
-<!--
+<h1 class="ui header page-title">Developers</h1>
 
-  <form ng-submit="vmDevelopers.saveDevelopers()" enctype="multipart/form-data">
-    <div class="row" ng-repeat="developer in vmDevelopers.developers">
-      <div class="col-md-3">
+<form class="developer-container" ng-submit="vmDevelopers.saveDevelopers()" enctype="multipart/form-data">
+  <div class="ui form sixteen wide container centered">
+    <div class="fields" ng-repeat="developer in vmDevelopers.developers">
+
+      <input class="ui button upload" type="button" value="Upload" ng-model="developer.avatar_url" ng-click="vmDevelopers.avatarUpload($index)" ng-show="!developer.avatar_url" />
+      <img class="ui avatar image" ng-src="{{ developer.avatar_url }}" ng-show="developer.avatar_url" >
+
+      <div class="field">
+        <label>Name</label>
         <input type="text"
-               class="form-control"
+               placeholder="Name"
                ng-model="developer.name"
-               ng-required="true"
-               ng-change="vmDevelopers.determineIfNewDeveloperNeeded()"></input>
+               ng-change="vmDevelopers.determineIfNewDeveloperNeeded()">
       </div>
-      <div class="col-md-3">
-        <input type="text" class="form-control" ng-model="developer.slack_name"></input>
+
+      <div class="field">
+        <label>Slack Handle</label>
+        <input type="text"
+               placeholder="Slack Handle"
+               ng-model="developer.slack_name"
+               ng-change="vmDevelopers.determineIfNewDeveloperNeeded()">
       </div>
-      <i class="fa fa-eraser" ng-click="vmDevelopers.deleteDeveloper(developer._id)"></i>
+      <i class="fa fa-ban" ng-show="developer.name && developer.slack_name" ng-click="vmDevelopers.deleteDeveloper(developer._id)"></i>
     </div>
-    <button type="submit">Submit</button>
-  </form>
-    <button ng-click="vmDevelopers.newDeveloper()">Add</i>
-
-</div> -->
-
-
-<form class="ui container developer-container" ng-submit="vmDevelopers.saveDevelopers()" enctype="multipart/form-data">
-<div class="ui form">
-  <div class="fields" ng-repeat="developer in vmDevelopers.developers">
-    <div class="field">
-      <label>Name</label>
-      <input type="text"
-             placeholder="Name"
-             ng-model="developer.name"
-             ng-change="vmDevelopers.determineIfNewDeveloperNeeded()">
-    </div>
-    <div class="field">
-      <label>Slack Handle</label>
-      <input type="text"
-             placeholder="Slack Handle"
-             ng-model="developer.slack_name"
-             ng-change="vmDevelopers.determineIfNewDeveloperNeeded()">
-    </div>
+    <button id="save-developers" class="ui button" type="submit">Save All Developers</button>
   </div>
-  <button class="ui button" type="submit">Save All Developers</button>
-</div>
 </form>

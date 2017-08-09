@@ -27,6 +27,9 @@
         function setup() {
           developerService.getDevelopers().then(function(response){
             vmCreatePairGroups.developers = response.data;
+            vmCreatePairGroups.developers = _.filter(vmCreatePairGroups.developers, function(o) {
+              return o.name !== null;
+            });
             vmCreatePairGroups.developers.sort();
           });
         }
@@ -39,15 +42,30 @@
 
           if(selectedDevelopers.length >= 2) {
             var pair = {
-              anchor: selectedDevelopers[0].name,
-              developer: selectedDevelopers[1].name,
+              anchor: selectedDevelopers[0],
+              developer: selectedDevelopers[1],
             }
             vmCreatePairGroups.pairGroup.pairs.push(pair);
             _.remove(vmCreatePairGroups.developers, function(developer) {
               return developer.selected;
             });
+            if (vmCreatePairGroups.developers.length === 1) {
+
+              vmCreatePairGroups.developers[0].selected === !vmCreatePairGroups.developers[0].selected;
+                console.log(vmCreatePairGroups.developers[0]);
+              var selectedDevelopers = _.filter(vmCreatePairGroups.developers, function(developer){
+                return developer.selected === true;
+              });
+              var pair = {
+                anchor: selectedDevelopers[0],
+                developer: {name: "All alone"}
+              }
+              vmCreatePairGroups.pairGroup.pairs.push(pair);
+              _.remove(vmCreatePairGroups.developers, function(developer) {
+                return developer.selected;
+              });
+            }
           }
-            console.log(vmCreatePairGroups.pairGroup.pairs);
         }
 
         function removePair(pair) {
@@ -68,9 +86,7 @@
         }
 
         function savePairGroup() {
-          console.log("calling controller");
           pairGroupService.createPairGroup(vmCreatePairGroups.pairGroup).then(function(response) {
-            console.log(response);
             $state.go('pairs');
           })
         }
@@ -79,3 +95,4 @@
 
 // TODO: Name everything correctly
 // TODO: Automatically assign the last pair
+// TODO: write a function to determine image

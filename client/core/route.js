@@ -1,4 +1,4 @@
-angular.module('pairsApp', ['ui.router', 'ngResource', 'ngToast']);
+angular.module('pairsApp', ['ui.router', 'ngResource', 'ngToast', 'ngImgCrop']);
 angular.module('pairsApp')
 .config(function ($stateProvider, $urlRouterProvider) {
   // $urlRouterProvider.otherwise('/pairs');

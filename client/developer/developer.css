@@ -1,0 +1,40 @@
+.developer-container {
+  margin: 0 auto;
+}
+
+.ui.header:first-child {
+  margin: 35px 75px;
+}
+
+.ui.form .fields > .field {
+  padding-left: 4.5em;
+  padding-right: 3em;
+}
+
+.fa-ban {
+  margin-top: 35px;
+}
+
+.cropArea {
+  background: #E4E4E4;
+  overflow: hidden;
+  width:500px;
+  height:350px;
+}
+
+.ui.button.upload {
+  height: 42px;
+  margin-top: 18px;
+}
+
+#save-developers {
+  margin-top: 35px;
+}
+
+.ui.avatar.image {
+  margin-right: 2.45em;
+  margin-top: 1.6em;
+  margin-left: 1em;
+  width: 3em;
+  height: 3em;
+}
