@@ -11,20 +11,32 @@
   margin-bottom: 125px;
 }
 
-.ui.header:first-child {
+.ui.header {
   margin: 25px 35px;
 }
 
 .ui.horizontal.list:not(.celled) > .item:first-child {
-  margin-left: 2em !important;
+  margin-left: 3em !important;
 }
 
 .ui.horizontal.list > .item {
-  margin-left: 2em;
+  margin-left: 3em;
   width: 190px;
 }
 
 .ui.horizontal.list .list > .item, .ui.horizontal.list > .item {
   font-size: 1.2rem;
-  margin-top: 12px;
+  margin-top: 5px;
+}
+
+.ui.horizontal.list {
+  font-size: 1em;
+}
+
+.pair-number {
+  margin-left: 30px;
+}
+
+.ui.horizontal.list.developers:not(.celled) > .item {
+  margin-left: 5.1em !important;
 }
