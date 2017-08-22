@@ -3,69 +3,34 @@
 
     <h2>developers</h2>
 
-      <div class="ui special cards">
-        <div class="card" ng-repeat="developer in vmCreatePairGroups.developers" ng-click="vmCreatePairGroups.handleClick($index)">
-          <div class="blurring dimmable image">
-            <div class="ui dimmer">
-              <div class="content">
-                <div class="center">
-                  <div class="ui inverted button">Add Friend</div>
-                </div>
-              </div>
-            </div>
-            <img src="{{ developer.avatar_url || '../assets/images/bucket.jpg'}}">
-          </div>
+      <div class="ui horizontal list">
+        <div class="item" ng-repeat="developer in vmCreatePairGroups.developers" ng-click="vmCreatePairGroups.handleClick($index)">
+          <img class="ui avatar image" src="{{ developer.avatar_url || '../assets/images/bucket.jpg'}}">
           <div class="content">
-            <a class="header">{{ developer.name }}</a>
-            <div class="meta">
-              <span class="date">{{ developer.slack_name }}</span>
-            </div>
+            <div class="header">{{ developer.name }}</div>
+            {{ developer.slack_name }}
           </div>
         </div>
       </div>
 
       <h2>pairs</h2>
 
-      <div class="ui special cards" ng-repeat="pair in vmCreatePairGroups.pairGroup.pairs">
-        <div class="card">
-          <div class="blurring dimmable image">
-            <div class="ui dimmer">
-              <div class="content">
-                <div class="center">
-                  <div class="ui inverted button">Add Friend</div>
-                </div>
-              </div>
-            </div>
-            <img src="{{ pair.anchor.avatar_url || '../assets/images/bucket.jpg'}}">
-          </div>
+      <div class="ui horizontal list" ng-repeat="pair in vmCreatePairGroups.pairGroup.pairs">
+        <div class="item">
+          <img class="ui avatar image" src="{{ pair.anchor.avatar_url || '../assets/images/bucket.jpg'}}">
           <div class="content">
-            <a class="header">{{ pair.anchor.name }}</a>
-            <div class="meta">
-              <span class="date">{{ pair.anchor.slack_name }}</span>
-            </div>
+            <div class="header">{{ pair.anchor.name }}</div>
+            {{ pair.anchor.slack_name }}
           </div>
         </div>
-        <div class="card">
-          <div class="blurring dimmable image">
-            <div class="ui dimmer">
-              <div class="content">
-                <div class="center">
-                  <div class="ui inverted button">Add Friend</div>
-                </div>
-              </div>
-            </div>
-            <img src="{{ pair.developer.avatar_url || '../assets/images/bucket.jpg'}}">
-          </div>
+        <div class="item">
+          <img class="ui avatar image" src="{{ pair.developer.avatar_url || '../assets/images/bucket.jpg'}}">
           <div class="content">
-            <a class="header">{{ pair.developer.name }}</a>
-            <div class="meta">
-              <span class="date">{{ pair.developer.slack_name }}</span>
-            </div>
+            <div class="header">{{ pair.developer.name }}</div>
+            {{ pair.developer.slack_name }}
           </div>
         </div>
       </div>
 
-    </div>
   </div>
   <button class="ui button" ng-click="vmCreatePairGroups.savePairGroup()">Submit</button>
-</div>

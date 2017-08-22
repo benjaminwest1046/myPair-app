@@ -1,3 +1,30 @@
 .ui.cards > .card, .ui.card {
   width: 160px;
 }
+
+.ui.horizontal.list {
+  display: block;
+}
+
+.ui[class*="very basic"].table {
+  margin: auto;
+  margin-bottom: 125px;
+}
+
+.ui.header:first-child {
+  margin: 25px 35px;
+}
+
+.ui.horizontal.list:not(.celled) > .item:first-child {
+  margin-left: 2em !important;
+}
+
+.ui.horizontal.list > .item {
+  margin-left: 2em;
+  width: 190px;
+}
+
+.ui.horizontal.list .list > .item, .ui.horizontal.list > .item {
+  font-size: 1.2rem;
+  margin-top: 12px;
+}

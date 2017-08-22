@@ -35,6 +35,7 @@
         }
 
         function handleClick(index) {
+          $(".card").flip();
           vmCreatePairGroups.developers[index].selected = !vmCreatePairGroups.developers[index].selected;
           var selectedDevelopers = _.filter(vmCreatePairGroups.developers, function(developer){
             return developer.selected === true;
@@ -49,22 +50,6 @@
             _.remove(vmCreatePairGroups.developers, function(developer) {
               return developer.selected;
             });
-            if (vmCreatePairGroups.developers.length === 1) {
-
-              vmCreatePairGroups.developers[0].selected === !vmCreatePairGroups.developers[0].selected;
-                console.log(vmCreatePairGroups.developers[0]);
-              var selectedDevelopers = _.filter(vmCreatePairGroups.developers, function(developer){
-                return developer.selected === true;
-              });
-              var pair = {
-                anchor: selectedDevelopers[0],
-                developer: {name: "All alone"}
-              }
-              vmCreatePairGroups.pairGroup.pairs.push(pair);
-              _.remove(vmCreatePairGroups.developers, function(developer) {
-                return developer.selected;
-              });
-            }
           }
         }
 
