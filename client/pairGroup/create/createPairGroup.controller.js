@@ -10,14 +10,15 @@
             developerService = _developerService_,
             vmCreatePairGroups = this;
             vmCreatePairGroups.pairGroup = {
-              date: '1/1/2012',
+              date: moment(),
               pairs: []
             };
 
         vmCreatePairGroups.handleClick = handleClick;
         vmCreatePairGroups.removePair = removePair;
         vmCreatePairGroups.savePairGroup = savePairGroup;
-
+        vmCreatePairGroups.dayOfWeek = vmCreatePairGroups.pairGroup.date.format('dddd');
+        
         init();
 
         function init() {
@@ -25,6 +26,7 @@
         }
 
         function setup() {
+
           developerService.getDevelopers().then(function(response){
             vmCreatePairGroups.developers = response.data;
             vmCreatePairGroups.developers = _.filter(vmCreatePairGroups.developers, function(o) {
