@@ -33,7 +33,7 @@
         {{ pair.developer.slack_name }}
       </div>
     </div>
-    <i class="fa fa-times" aria-hidden="true"></i>
+    <i class="fa fa-times" aria-hidden="true" ng-click="vmCreatePairGroups.removePair(pair)"></i>
 
   </div>
   <button class="ui button" ng-click="vmCreatePairGroups.savePairGroup()">Submit</button>

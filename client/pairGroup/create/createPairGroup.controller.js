@@ -70,10 +70,12 @@
         }
 
         function removePair(pair) {
-          pair.forEach(function(developer) {
-            developer.selected = false;
-            vmCreatePairGroups.developers.push(developer)
-          });
+          pair.anchor.selected = false;
+          vmCreatePairGroups.developers.push(pair.anchor);
+
+          pair.developer.selected = false;
+          vmCreatePairGroups.developers.push(pair.developer);
+
           var pairIndex = vmCreatePairGroups.pairGroup.pairs.indexOf(pair);
           vmCreatePairGroups.pairGroup.pairs.splice(pairIndex, 1);
         }
