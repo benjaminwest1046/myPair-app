@@ -18,7 +18,7 @@
         vmCreatePairGroups.removePair = removePair;
         vmCreatePairGroups.savePairGroup = savePairGroup;
         vmCreatePairGroups.dayOfWeek = vmCreatePairGroups.pairGroup.date.format('dddd');
-        
+
         init();
 
         function init() {
@@ -37,21 +37,35 @@
         }
 
         function handleClick(index) {
-          $(".card").flip();
           vmCreatePairGroups.developers[index].selected = !vmCreatePairGroups.developers[index].selected;
           var selectedDevelopers = _.filter(vmCreatePairGroups.developers, function(developer){
             return developer.selected === true;
           });
 
-          if(selectedDevelopers.length >= 2) {
+         if(selectedDevelopers.length >= 2) {
             var pair = {
               anchor: selectedDevelopers[0],
-              developer: selectedDevelopers[1],
+              developer: selectedDevelopers[1]
             }
             vmCreatePairGroups.pairGroup.pairs.push(pair);
             _.remove(vmCreatePairGroups.developers, function(developer) {
               return developer.selected;
             });
+            checkForLastDeveloper();
+          }
+        }
+
+        function checkForLastDeveloper() {
+          console.log('its being called');
+          if(vmCreatePairGroups.developers.length == 1 ) {
+            var pair = {
+              anchor: vmCreatePairGroups.developers[0],
+              developer: {name: 'None', avatar_url: 'https://pbs.twimg.com/profile_images/1594918277/image_400x400.jpg' }
+            }
+            vmCreatePairGroups.pairGroup.pairs.push(pair);
+            _.remove(vmCreatePairGroups.developers, function(developer) {
+              return developer;
+            })
           }
         }
 

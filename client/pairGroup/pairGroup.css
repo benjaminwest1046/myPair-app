@@ -40,3 +40,8 @@
 .ui.horizontal.list.developers:not(.celled) > .item {
   margin-left: 5.1em !important;
 }
+
+.selected-developer {
+  background-color: rgba(38, 194, 129, 0.5);
+  border-radius: 5px;
+}
