@@ -45,3 +45,8 @@
   background-color: rgba(38, 194, 129, 0.5);
   border-radius: 5px;
 }
+
+.pair:hover {
+  opacity: .35;
+  
+}

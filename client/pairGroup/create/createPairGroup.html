@@ -17,7 +17,7 @@
 
 <h3 class="ui header">Pairs</h3>
 
-  <div class="ui horizontal list" ng-repeat="pair in vmCreatePairGroups.pairGroup.pairs">
+  <div class="ui horizontal list pair" ng-repeat="pair in vmCreatePairGroups.pairGroup.pairs" ng-mouseover="document.getElementById('pair').style.color = 'blue'"">
     <span class="pair-number">{{ $index + 1}}.</span>
     <div class="item">
       <img class="ui avatar image" src="{{ pair.anchor.avatar_url || '../assets/images/bucket.jpg'}}">
