@@ -32,13 +32,29 @@
 
     function getDevelopers() {
       return developerService.getDevelopers()
-      .then(res => {
+      .then(function(res) {
         return vmDevelopers.developers = _.sortBy(res.data, function(o) {
           if (o.name !== undefined || o.name !== null || o.name !== "") {
             return o.name;
           }
-        });
-      });
+        })
+        })
+        .then(function(developers) {
+          var noNameDeveloper = _.filter(developers, function(d) {
+            return d.name === 'None';
+          });
+          if(noNameDeveloper.length === 0) {
+            developerService.updateDeveloper({
+                name: 'None',
+                slack_name: 'None',
+                avatar_url: 'https://pbs.twimg.com/profile_images/1594918277/image_400x400.jpg'
+              }).then(function(developer) {
+                vmDevelopers.developers.push(developer);
+                return vmDevelopers.developers;
+              });
+          }
+        })
+
     }
 
     function newDeveloper() {

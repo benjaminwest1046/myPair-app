@@ -4,8 +4,7 @@ var shortid = require('shortid');
 var PairSchema = new mongoose.Schema({
   anchor         : String,
   developer      : String,
-  third_developer: String,
-  is_resillience : String
+  third_developer: String
 });
 
 module.exports = mongoose.model('Pair', PairSchema);

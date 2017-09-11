@@ -16,6 +16,8 @@ router.get('/', function(req, res, next) {
 //CREATE
 router.post('/', function(req, res, next) {
   console.log(req.data);
+  console.log(req.body.date);
+  console.log(req.body.pairs);
   var pairGroup = new PairGroup({
     date: req.body.date,
     pairs: req.body.pairs

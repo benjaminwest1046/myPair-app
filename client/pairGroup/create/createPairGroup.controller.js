@@ -33,6 +33,7 @@
               return o.name !== null;
             });
             vmCreatePairGroups.developers.sort();
+            console.log(vmCreatePairGroups.developers);
           });
         }
 
@@ -56,13 +57,13 @@
         }
 
         function checkForLastDeveloper() {
-          console.log('its being called');
           if(vmCreatePairGroups.developers.length == 1 ) {
             var pair = {
               anchor: vmCreatePairGroups.developers[0],
-              developer: {name: 'None', avatar_url: 'https://pbs.twimg.com/profile_images/1594918277/image_400x400.jpg' }
+              developer: {name: 'None', _id: 1234, slack_name: 'None', avatar_url: 'https://pbs.twimg.com/profile_images/1594918277/image_400x400.jpg' }
             }
             vmCreatePairGroups.pairGroup.pairs.push(pair);
+            console.log(vmCreatePairGroups.pairGroup.pairs);
             _.remove(vmCreatePairGroups.developers, function(developer) {
               return developer;
             })
@@ -93,9 +94,8 @@
             $state.go('pairs');
           })
         }
+
+
+
     }
 })();
-
-// TODO: Name everything correctly
-// TODO: Automatically assign the last pair
-// TODO: write a function to determine image

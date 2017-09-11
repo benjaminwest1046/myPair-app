@@ -9,12 +9,7 @@ var DeveloperSchema = new mongoose.Schema({
     _id: {
       type: String,
       'default': shortid.generate
-    },
-    // avatar: {
-    //   type: mongoose.Schema.Types.Mixed,
-    //   required: true
-    // },
-
+    }
 });
 
 module.exports = mongoose.model('Developer', DeveloperSchema);
