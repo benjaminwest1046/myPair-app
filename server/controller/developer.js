@@ -13,21 +13,6 @@ router.get('/', function(req, res, next) {
   });
 });
 
-// //Create
-// router.post('/', function(req, res, next) {
-//   var developer = new Developer({
-//     name: req.body.name,
-//     slack_name: req.body.slack_name,
-//     avatar_url: req.body.avatar_url
-//   });
-//   return developer.save();
-// })
-// .then(function(developer) {
-//   return res.json(developer);
-// }, function(err) {
-//   return next(err);
-// });
-
 router.put('/:id', function(req, res, next) {
   Developer.findById(req.params.id)
   .then(function(developer) {

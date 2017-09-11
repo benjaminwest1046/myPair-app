@@ -2,7 +2,7 @@
 
 <form class="developer-container" ng-submit="vmDevelopers.saveDevelopers()" enctype="multipart/form-data">
   <div class="ui form sixteen wide container centered">
-    <div class="fields" ng-repeat="developer in vmDevelopers.developers">
+    <div class="fields" ng-repeat="developer in vmDevelopers.developers" ng-class="{'hidden' : developer.name === 'None'}">
 
       <input class="ui button upload" type="button" value="Upload" ng-model="developer.avatar_url" ng-click="vmDevelopers.avatarUpload($index)" ng-show="!developer.avatar_url" />
       <img class="ui avatar image" ng-src="{{ developer.avatar_url }}" ng-show="developer.avatar_url" >

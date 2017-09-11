@@ -38,3 +38,7 @@
   width: 3em;
   height: 3em;
 }
+
+.ui.form .fields.hidden {
+  display: none;
+}

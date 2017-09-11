@@ -6,8 +6,8 @@
   <h3 class="ui header">Developers</h3>
 
   <div class="ui horizontal list developers">
-    <div class="item" ng-repeat="developer in vmCreatePairGroups.developers" ng-click="vmCreatePairGroups.handleClick($index)" ng-class="{ 'selected-developer': developer.selected }">
-      <img class="ui avatar image" src="{{ developer.avatar_url || '../assets/images/bucket.jpg'}}">
+    <div class="item" ng-repeat="developer in vmCreatePairGroups.developers" ng-click="vmCreatePairGroups.handleClick($index)" ng-class="{ 'selected-developer': developer.selected}">
+      <img class="ui avatar image" ng-src="{{ developer.avatar_url || '../assets/images/bucket.jpg'}}">
       <div class="content">
         <div class="header">{{ developer.name }}</div>
         {{ developer.slack_name }}
@@ -20,21 +20,21 @@
   <div class="ui horizontal list pair" ng-repeat="pair in vmCreatePairGroups.pairGroup.pairs">
     <span class="pair-number">{{ $index + 1}}.</span>
     <div class="item">
-      <img class="ui avatar image" src="{{ pair.anchor.avatar_url || '../assets/images/bucket.jpg'}}">
+      <img class="ui avatar image" ng-src="{{ pair.anchor.avatar_url || '../assets/images/bucket.jpg'}}">
       <div class="content">
         <div class="header">{{ pair.anchor.name }}</div>
         {{ pair.anchor.slack_name }}
       </div>
     </div>
     <div class="item">
-      <img class="ui avatar image" src="{{ pair.developer.avatar_url || '../assets/images/bucket.jpg'}}">
+      <img class="ui avatar image" ng-src="{{ pair.developer.avatar_url || '../assets/images/bucket.jpg'}}">
       <div class="content">
         <div class="header">{{ pair.developer.name }}</div>
         {{ pair.developer.slack_name }}
       </div>
     </div>
     <i class="fa fa-times" aria-hidden="true" ng-click="vmCreatePairGroups.removePair(pair)"></i>
-    
+
 
   </div>
   <button class="ui button" ng-click="vmCreatePairGroups.savePairGroup()">Submit</button>
