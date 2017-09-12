@@ -15,8 +15,7 @@
 
         function init() {
           getPairGroups().then(function(res) {
-            console.log(vmPairGroups.pairGroups);
-          })
+          });
         }
 
         function getPairGroups() {

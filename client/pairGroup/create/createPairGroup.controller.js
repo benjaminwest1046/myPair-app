@@ -27,8 +27,15 @@
         }
 
         function setup() {
+          //get all pairGroupService
+          //filter to see if there is one with the same date
+          //if so, load in the pairs and make sure that available developers is empty
+          pairGroupService.getPairGroups()
+          .then(function(pairGroups) {
+            console.log(pairGroups);
+          });
 
-          developerService.getDevelopers().then(function(response){
+          developerService.getDevelopers().then(function(response) {
             vmCreatePairGroups.developers = response.data;
             var noNameArray = _.filter(vmCreatePairGroups.developers, function(d) {
               return d.name === 'None';

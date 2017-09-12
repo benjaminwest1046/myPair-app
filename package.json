@@ -4,19 +4,23 @@
   "description": "An SPA to track pairs",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Benjamin West",
   "license": "ISC",
   "dependencies": {
+    "@angular/cli": "^1.4.1",
+    "@angular/compiler-cli": "^4.4.0-RC.0",
     "body-parser": "^1.17.1",
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "lodash": "^4.17.4",
     "mongoose": "^4.9.1",
     "path": "^0.12.7",
-    "semantic-ui": "^2.2.11",
     "shortid": "^2.2.8"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }

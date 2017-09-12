@@ -4,12 +4,12 @@
       <th colspan="2"><h4>{{ day.date | date:'medium'}}</h4></th>
     </thead>
     <tbody>
-      <tr ng-repeat="pair in day.pairs">
+      <tr ng-repeat="pair in day.pairs" ng-class="{ 'resillience' : pair.resillience === true }">
         <td>
           <h4 class="ui image header">
-            <img src="{{ pair.anchor.avatar_url || '../assets/images/bucket.jpg'}}" class="ui mini rounded image">
+            <img ng-src="{{ pair.anchor.avatar_url || '../assets/images/bucket.jpg'}}" class="ui mini rounded image">
             <div class="content">
-              {{ pair.anchor }}
+              {{ pair.anchor.name }}
               <div class="sub header">Anchor
             </div>
           </div>
@@ -17,9 +17,9 @@
       </td>
         <td>
           <h4 class="ui image header">
-            <img src="{{ pair.developer.avatar_url || '../assets/images/bucket.jpg'}}" class="ui mini rounded image">
+            <img ng-src="{{ pair.developer.avatar_url || '../assets/images/bucket.jpg'}}" class="ui mini rounded image">
             <div class="content">
-              {{ pair.developer }}
+              {{ pair.developer.name }}
               <div class="sub header">Developer
             </div>
           </div>

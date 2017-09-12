@@ -9,7 +9,7 @@
     <div class="item" ng-repeat="developer in vmCreatePairGroups.developers" ng-click="vmCreatePairGroups.handleClick($index)" ng-class="{ 'selected-developer': developer.selected}">
       <img class="ui avatar image" ng-src="{{ developer.avatar_url || '../assets/images/bucket.jpg'}}">
       <div class="content">
-        <div class="header">{{ developer.name }}</div>
+        <div class="header"> {{ developer.name }} </div>
         {{ developer.slack_name }}
       </div>
     </div>
@@ -34,7 +34,10 @@
       </div>
     </div>
     <i class="fa fa-times" aria-hidden="true" ng-click="vmCreatePairGroups.removePair(pair)"></i>
-
+    <div class="ui checkbox">
+      <input type="checkbox" ng-model="pair.resillience">
+      <label>Resillience</label>
+    </div>
 
   </div>
   <button class="ui button" ng-click="vmCreatePairGroups.savePairGroup()">Submit</button>

@@ -1,10 +1,12 @@
 var mongoose = require('mongoose');
 var shortid = require('shortid');
+var DeveloperSchema = require('mongoose').model('Developer').schema
 
 var PairSchema = new mongoose.Schema({
-  anchor         : String,
-  developer      : String,
-  third_developer: String
+  anchor         : DeveloperSchema,
+  developer      : DeveloperSchema,
+  third_developer: DeveloperSchema,
+  resillience    : Boolean
 });
 
 module.exports = mongoose.model('Pair', PairSchema);

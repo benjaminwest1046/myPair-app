@@ -1,11 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var Developer = require('../models/developer.js');
 var PairGroup = require('../models/pairGroup.js');
 
 //GET ALL
 router.get('/', function(req, res, next) {
   PairGroup.find({})
   .then(function(pairGroups) {
+    pairGroups.forEach(function(pairGroup) {
+      pairGroup.pairs.forEach(function(pair) {
+        console.log(pair);
+      })
+    })
     res.json(pairGroups);
   }, function(err) {
     return next(err);
