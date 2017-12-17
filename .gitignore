@@ -7,7 +7,6 @@ package.json
 .idea/modules.xml
 .idea/myPair-app.iml
 .idea/workspace.xml
-semantic.json
 client/assets/images/avatar_placeholder.png
 client/assets/semantic/gulpfile.js
 client/assets/semantic/dist/semantic.css
