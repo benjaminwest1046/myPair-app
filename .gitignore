@@ -578,3 +578,5 @@ client/assets/semantic/tasks/docs/metadata.js
 client/assets/semantic/tasks/docs/serve.js
 client/assets/semantic/tasks/rtl/build.js
 client/assets/semantic/tasks/rtl/watch.js
+client/reports/report.controller.js
+client/reports/reports.html

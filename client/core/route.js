@@ -17,6 +17,11 @@ angular.module('pairsApp')
       url: '/developers',
       templateUrl: '../developer/developers.html',
       controller: 'developerCtrl as vmDevelopers'
-    });
+    })
+    .state('reports', {
+      url: '/reports',
+      templateUrl: '../reports/reports.html',
+      controller: 'reportCtrl as vmReports'
+    })
 
 });
